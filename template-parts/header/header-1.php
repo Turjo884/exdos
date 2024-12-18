@@ -1,8 +1,3 @@
-<?php
-
-$phone_number = get_theme_mod('phone_number', '+ 4 20 7700 1007');
-
-?> 
 
 <!-- header start  -->
 <header>
@@ -11,7 +6,7 @@ $phone_number = get_theme_mod('phone_number', '+ 4 20 7700 1007');
                 <div class="row gx-0 align-items-center">
                     <div class="col-xl-2 col-lg-5 col-md-4 col-6">
                         <div class="tp-logo">
-                            <a href="index.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logo-white.png" alt=""></a>
+                            <?php echo exdos_header_logo(); ?>
                         </div>
                     </div>
                     <div class="col-xl-10 col-lg-7 col-md-8 col-6">
@@ -86,63 +81,6 @@ $phone_number = get_theme_mod('phone_number', '+ 4 20 7700 1007');
         </div>
     </header>
     <!-- header end  -->
-    <!-- tp header search  -->
-    <div class="tp-header-search-bar d-flex align-items-center">
-        <button class="tp-search-close">×</button>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="tp-search-bar text-center">
-                        <h2 class="tp-search-bar-title mb-30">What are you looking for?</h2>
-                        <div class="contact-form-box contact-search-form-box">
-                            <form action="#">
-                                <input type="email" placeholder="Email Here*">
-                                <button type="submit"><i class="far fa-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="tp-offcanvas">
-        <div class="tp-offcanvas-wrapper">
-            <div class="tp-offcanvas-header d-flex justify-content-between align-items-center mb-90">
-                <div class="tp-offcanvas-logo">
-                    <a href="index.html"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logo-black.png" alt=""></a>
-                </div>
-                <div class="tp-offcanvas-close">
-                    <button class="tp-offcanvas-close-toggle"><i class="fal fa-times"></i></button>
-                </div>
-            </div>
-            <div class="tp-offcanvas-menu d-xl-none mb-50">
-                <nav></nav>
-            </div>
-            <div class="tp-offcanvas-content mb-50 d-none d-xl-block">
-                <h2 class="tp-offcanvas-title">Hello There!</h2>
-                <p>Lorem ipsum dolor sit amet, consect etur adipiscing elit. </p>
-            </div>
-            <div class="tp-offcanvas-gallery mb-50">
-                <a class="popup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-01.jpg"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-01.jpg" alt=""></a>
-                <a class="popup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-02.jpg"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-02.jpg" alt=""></a>
-                <a class="popup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-03.jpg"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-03.jpg" alt=""></a>
-                <a class="popup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-04.jpg"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-04.jpg" alt=""></a>
-            </div>
-            <div class="tp-offcanvas-info mb-50">
-                <h3 class="tp-offcanvas-sm-title">Information</h3>
-                <span><a href="#">+ 4 20 7700 1007</a></span>
-                <span><a href="#">hello@exdos.com</a></span>
-                <span><a href="#">Avenue de Roma 158b, Lisboa</a></span>
-            </div>
-            <div class="tp-offcanvas-social mb-50">
-                <h3 class="tp-offcanvas-sm-title">Follow Us</h3>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="tp-offcanvas-overlay"></div>
+ 
+    <?php echo get_template_part('template-parts/header/header-search'); ?>                                  
+    <?php echo get_template_part('template-parts/header/offcanvas'); ?>
