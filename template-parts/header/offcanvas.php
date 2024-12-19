@@ -13,6 +13,10 @@ $offcanvas_address = get_theme_mod('offcanvas_address', esc_html__('Avenue de Ro
 
 $offcanvas_address_url = get_theme_mod('offcanvas_address_url', esc_html__('#', 'exdos'));
 
+// offcanvas gallery
+$offcanvas_gallery = get_theme_mod('offcanvas_gallery');
+
+
 // Follow Us Tittle
 $follow_us_tittle = get_theme_mod('follow_us_tittle', esc_html__('Follow Us', 'exdos'));
 
@@ -43,12 +47,13 @@ $follow_us_tittle = get_theme_mod('follow_us_tittle', esc_html__('Follow Us', 'e
                 <?php endif; ?>
 
             </div>
+
             <div class="tp-offcanvas-gallery mb-50">
-                <a class="popup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-01.jpg"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-01.jpg" alt=""></a>
-                <a class="popup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-02.jpg"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-02.jpg" alt=""></a>
-                <a class="popup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-03.jpg"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-03.jpg" alt=""></a>
-                <a class="popup-image" href="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-04.jpg"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/project/showcase-thumb-04.jpg" alt=""></a>
+                <?php foreach($offcanvas_gallery as $item) : ?>
+                <a class="popup-image" href="<?php echo esc_url($item['gallery_image']); ?>"><img src="<?php echo esc_url($item['gallery_image']); ?>" alt=""></a>
+                <?php endforeach ?>
             </div>
+
             <div class="tp-offcanvas-info mb-50">
                 <h3 class="tp-offcanvas-sm-title"><?php echo esc_html__('Inforamtion' , 'exdos'); ?></h3>
 

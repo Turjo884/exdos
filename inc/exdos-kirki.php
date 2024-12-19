@@ -122,6 +122,24 @@ function header_offcanvas_kirki(){
 			'priority' => 10,
 		]
 	);
+
+	new \Kirki\Field\Repeater(
+		[
+			'settings' => 'offcanvas_gallery',
+			'label'    => esc_html__( 'Gallery Item', 'kirki' ),
+			'section'  => 'header_offcanvas',
+			'priority' => 10,
+			
+			'fields'   => [
+				'gallery_image'   => [
+					'type'        => 'image',
+					'label'       => esc_html__( 'Gallery Image', 'kirki' ),
+					'description' => esc_html__( 'Please add your gallery image', 'kirki' ),
+				],
+				
+			],
+		]
+	);
 }
 header_offcanvas_kirki();
 
