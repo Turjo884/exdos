@@ -1,4 +1,8 @@
+<?php
 
+    $phone_number = get_theme_mod('phone_number' , esc_html__('+ 4 20 7700 1007' , 'exdos'));
+
+?>
 <!-- header start  -->
 <header>
         <div id="tp-header-sticky" class="tp-header-area tp-transparent-header pl-100 tp-header-border tp-sticky-black">

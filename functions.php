@@ -43,6 +43,7 @@ if ( ! function_exists( 'exdos_setup' ) ) :
         // This theme uses wp_nav_menu() in two locations.
         register_nav_menus( array(
             'main-menu' => __( 'Main Menu',  'exdos' ),
+            'footer-menu' => __( 'Footer Menu',  'exdos' ),
 
         ) );
     
@@ -62,11 +63,59 @@ if ( ! function_exists( 'exdos_setup' ) ) :
         add_theme_support( 'post-formats', array(
             'aside', 'image', 'video', 'quote', 'gallery', 'status', 'audio', 'chat'
         ) );
+
+        remove_theme_support('widgets-block-editor');
     
     }
     endif; // exdos_setup
     add_action( 'after_setup_theme', 'exdos_setup' );
 
+
+    /**
+ * Register Widget.
+ */
+function exdos_register_widget_sidebar() {
+	register_sidebar( array(
+		'name'          => __( 'Footer-1', 'textdomain' ),
+		'id'            => 'footer-1',
+		'description'   => __( 'Widgets in this area will be shown on footer-1 widget.', 'textdomain' ),
+		'before_widget' => '<div id="%1$s" class="tp-footer-widget mb-50 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="tp-footer-widget-title mb-20">',
+		'after_title'   => '</h3>',
+	) );
+
+    register_sidebar( array(
+		'name'          => __( 'Footer-2', 'textdomain' ),
+		'id'            => 'footer-2',
+		'description'   => __( 'Widgets in this area will be shown on footer-2 widget.', 'textdomain' ),
+		'before_widget' => '<div id="%1$s" class="tp-footer-widget tp-footer-col-2 mb-50 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="tp-footer-widget-title mb-20">',
+		'after_title'   => '</h3>',
+	) );
+
+    register_sidebar( array(
+		'name'          => __( 'Footer-3', 'textdomain' ),
+		'id'            => 'footer-3',
+		'description'   => __( 'Widgets in this area will be shown on footer-3 widget.', 'textdomain' ),
+		'before_widget' => '<div id="%1$s" class="tp-footer-widget tp-footer-col-3 mb-50 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="tp-footer-widget-title mb-20">',
+		'after_title'   => '</h3>',
+	) );
+
+    register_sidebar( array(
+		'name'          => __( 'Footer-4', 'textdomain' ),
+		'id'            => 'footer-4',
+		'description'   => __( 'Widgets in this area will be shown on footer-4 widget.', 'textdomain' ),
+		'before_widget' => '<div id="%1$s" class="tp-footer-widget tp-footer-col-4 mb-50 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="tp-footer-widget-title mb-20">',
+		'after_title'   => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'exdos_register_widget_sidebar' );
 
 
 // exdos css and js

@@ -1,6 +1,6 @@
 <?php
 
-// Header Social Logo
+// Header Logo
 function exdos_header_logo(){
 
     $header_logo = get_theme_mod('header_logo' , get_template_directory_uri().'/assets/img/logo/logo-white.png');
@@ -14,6 +14,32 @@ function exdos_header_logo(){
     <?php
 }
 
+// Footer Logo
+function exdos_footer_logo(){
+
+    $footer_logo = get_theme_mod('footer_logo' , get_template_directory_uri().'/assets/img/logo/logo-white.png');
+
+    ?>
+    
+    <a href="<?php echo home_url(); ?>">
+        <img src="<?php echo esc_url($footer_logo); ?>" alt="">
+    </a>
+
+    <?php
+}
+
+// Footer Copywirght
+function exdos_footer_copywright(){
+
+    $footer_copywright = get_theme_mod('footer_copywright' , esc_html__('© Copyright 2024 | Alright reserved exdos by ThemePure' , 'exdos'));
+    ?>
+    
+    <p><?php echo esc_html($footer_copywright); ?></p>
+
+    <?php
+}
+
+
 // Menu
 function exdos_main_menu(){
     wp_nav_menu(array(
@@ -24,6 +50,18 @@ function exdos_main_menu(){
         'walker' => new Exdos_Walker_Nav_Menu,
       ));
 }
+
+// Footer Menu
+function exdos_footer_menu(){
+    wp_nav_menu(array(
+        'theme_location' => 'footer-menu',
+        'container' => '',
+        'menu_class' => 'exdos-menus',
+        'fallback_cb' => 'Exdos_Walker_Nav_Menu::fallback',
+        'walker' => new Exdos_Walker_Nav_Menu,
+      ));
+}
+
 
 
 // Socia media
