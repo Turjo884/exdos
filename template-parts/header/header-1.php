@@ -13,42 +13,7 @@
                         <div class="tp-header-box d-flex justify-content-xl-between justify-content-end">
                             <div class="tp-main-menu pl-45 d-none d-xl-block">
                                 <nav class="tp-mobile-menu-active">
-                                    <ul>
-                                        <li class="has-dropdown"><a href="index.html">Home</a>
-                                        </li>
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="services.html">Service</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="services.html">Services</a></li>
-                                                <li><a href="services-details.html">Services Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown"><a href="portfolio.html">Portfolio</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Pages</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a href="portfolio.html">Portfolio</a></li>
-                                                <li><a href="services.html">Services</a></li>
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="pricing.html">Pricing</a></li>
-                                                <li><a href="faq.html">Faq</a></li>
-                                                <li><a href="team.html">Team</a></li>
-                                                <li><a href="team-details.html">Team Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="blog.html">Blog</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
+                                    <?php exdos_main_menu(); ?>
                                 </nav>
                             </div>
                             <div class="tp-header-right d-flex justify-content-end flex-wrap align-items-center">

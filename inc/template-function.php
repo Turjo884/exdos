@@ -14,7 +14,19 @@ function exdos_header_logo(){
     <?php
 }
 
+// Menu
+function exdos_main_menu(){
+    wp_nav_menu(array(
+        'theme_location' => 'main-menu',
+        'container' => '',
+        'menu_class' => 'exdos-menus',
+        'fallback_cb' => 'Exdos_Walker_Nav_Menu::fallback',
+        'walker' => new Exdos_Walker_Nav_Menu,
+      ));
+}
 
+
+// Socia media
 function exdos_header_social(){
 
     // social icon dynamic variable part

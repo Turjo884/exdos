@@ -42,7 +42,7 @@ if ( ! function_exists( 'exdos_setup' ) ) :
     
         // This theme uses wp_nav_menu() in two locations.
         register_nav_menus( array(
-            'primary' => __( 'Primary Menu',  'exdos' ),
+            'main-menu' => __( 'Main Menu',  'exdos' ),
 
         ) );
     
@@ -116,4 +116,5 @@ add_action( 'wp_enqueue_scripts', 'exdos_scripts' );
 
 
 include_once('inc/template-function.php');
+include_once('inc/nav-walker.php');
 include_once('inc/exdos-kirki.php');
