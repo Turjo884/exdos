@@ -76,6 +76,16 @@ if ( ! function_exists( 'exdos_setup' ) ) :
  */
 function exdos_register_widget_sidebar() {
 	register_sidebar( array(
+		'name'          => __( 'Blog Sidebar', 'textdomain' ),
+		'id'            => 'blog-sidebar',
+		'description'   => __( 'Widgets in this area will be shown on blog sidebar widget.', 'textdomain' ),
+		'before_widget' => '<div id="%1$s" class="tp-blog-sidebar-widget mb-30 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="tp-blog-sidebar-title tp-fs-24 mb-25">',
+		'after_title'   => '</h3>',
+	) );
+
+    register_sidebar( array(
 		'name'          => __( 'Footer-1', 'textdomain' ),
 		'id'            => 'footer-1',
 		'description'   => __( 'Widgets in this area will be shown on footer-1 widget.', 'textdomain' ),
@@ -170,3 +180,20 @@ include_once('inc/nav-walker.php');
 if ( class_exists( 'Kirki' ) ){
 include_once('inc/exdos-kirki.php');
 };
+
+
+/**
+ * Generate custom search form
+ *
+ * @param string $form Form HTML.
+ * @return string Modified form HTML.
+ */
+function exdos_search_form( $form ) {
+	$form = '<form class="tp-blog-form position-relative" action="' . home_url( '/' ) . '"  method="get">
+        <input name="s" type="text" value="' . get_search_query() . '" placeholder="'. esc_attr__( 'Search Here', 'exdos' ) .'">
+        <button type="submit"><i class="far fa-arrow-right"></i></button>
+        </form>';
+
+	return $form;
+}
+add_filter( 'get_search_form', 'exdos_search_form' );  

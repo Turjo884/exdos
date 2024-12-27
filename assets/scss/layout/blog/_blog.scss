@@ -229,7 +229,7 @@
     & li {
         display: inline-block;
         margin-right: 7px;
-        & a{
+        & a, & span{
             border: 1px solid #57595C;
             line-height: 58px;
             text-align: center;
@@ -241,7 +241,7 @@
             width: 60px;
             display: inline-block;
             transition: .3s;
-            &:hover{
+            &:hover, &.current{
                 background-color: var(--tp-theme-color);
                 border-color: var(--tp-theme-color);
                 color: #fff;

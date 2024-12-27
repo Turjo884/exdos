@@ -94,3 +94,19 @@ function exdos_header_social(){
 
     <?php
 }
+
+// exdos_pagination
+function exdos_pagination(){
+    $pages = paginate_links( array( 
+        'type' => 'array',
+        'prev_text'    => __('<i class="fal fa-long-arrow-left"></i>','harry'),
+        'next_text'    => __('<i class="fal fa-long-arrow-right"></i>','harry'),
+    ) );
+        if( $pages ) {
+        echo '<ul>';
+        foreach ( $pages as $page ) {
+            echo "<li>$page</li>";
+        }
+        echo '</ul>';
+    }
+}
