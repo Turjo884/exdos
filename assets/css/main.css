@@ -177,6 +177,10 @@ p {
   line-height: 28px;
 }
 
+img {
+  height: auto;
+}
+
 a,
 button,
 p,
@@ -5955,7 +5959,7 @@ img {
   display: inline-block;
   margin-right: 7px;
 }
-.tp-pagination ul li a {
+.tp-pagination ul li a, .tp-pagination ul li span {
   border: 1px solid #57595C;
   line-height: 58px;
   text-align: center;
@@ -5968,12 +5972,12 @@ img {
   display: inline-block;
   transition: 0.3s;
 }
-.tp-pagination ul li a:hover {
+.tp-pagination ul li a:hover, .tp-pagination ul li a.current, .tp-pagination ul li span:hover, .tp-pagination ul li span.current {
   background-color: var(--tp-theme-color);
   border-color: var(--tp-theme-color);
   color: #fff;
 }
-.tp-pagination ul li a i {
+.tp-pagination ul li a i, .tp-pagination ul li span i {
   font-size: 26px;
   transform: translateY(3px);
 }
@@ -6151,6 +6155,8 @@ img {
 }
 .tp-blog-sidebar-post-thumb img {
   width: 100%;
+  height: 150px;
+  object-fit: cover;
 }
 .tp-blog-sidebar-post-title:hover {
   color: var(--tp-theme-color);
@@ -6183,6 +6189,37 @@ img {
   transform: translateY(-50%) rotate(-40deg);
 }
 .tp-blog-sidebar-cat ul li:last-child {
+  margin-bottom: 0;
+}
+
+.widget_categories ul li {
+  margin-bottom: 15px;
+  list-style: none;
+}
+.widget_categories ul li a {
+  color: #57595C;
+  display: block;
+  padding: 20px 25px;
+  line-height: 1;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #57595C;
+  border-radius: 5px;
+}
+.widget_categories ul li a:hover {
+  background-color: var(--tp-theme-color);
+  color: #fff;
+  border-color: var(--tp-theme-color);
+}
+.widget_categories ul li a:after {
+  content: "\f061";
+  font-family: "Font Awesome 5 Pro";
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-40deg);
+}
+.widget_categories ul li:last-child {
   margin-bottom: 0;
 }
 
@@ -6226,7 +6263,7 @@ img {
 }
 
 .tagcloud a {
-  font-size: 15px;
+  font-size: 15px !important;
   font-weight: 500;
   border: 1px solid #57595C;
   color: #57595C;
@@ -10048,4 +10085,4 @@ img {
   margin-bottom: 23px;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=main.css.map */
