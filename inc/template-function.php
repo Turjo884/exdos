@@ -110,3 +110,20 @@ function exdos_pagination(){
         echo '</ul>';
     }
 }
+
+
+// exdos_tags
+function exdos_tags(){
+	$post_tags = get_the_tags();
+    if ($post_tags) {
+        foreach ($post_tags as $tag) {
+            ?>
+            <a href="<?php echo get_tag_link($tag); ?>"><?php echo esc_html( $tag->name); ?></a>
+            <?php
+        }
+    } else {
+        ?>
+        <i><?php echo esc_html__('No tags found','exdos'); ?></i>
+        <?php
+    }
+}
