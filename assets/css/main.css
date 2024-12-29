@@ -5894,18 +5894,18 @@ img {
   margin-bottom: 5px;
 }
 
-.reply {
+.reply, .comments-reply-link {
   position: absolute;
   right: 0;
   top: 0;
   font-size: 18px;
   color: #57595C;
 }
-.reply:hover {
+.reply:hover, .comments-reply-link:hover {
   color: var(--tp-theme-color);
 }
 @media (max-width: 767px) {
-  .reply {
+  .reply, .comments-reply-link {
     position: static;
   }
 }
@@ -5980,6 +5980,15 @@ img {
 .tp-pagination ul li a i, .tp-pagination ul li span i {
   font-size: 26px;
   transform: translateY(3px);
+}
+
+.contact-form-box textarea {
+  height: 150px;
+}
+
+.postbox__comment li .children {
+  padding-left: 50px !important;
+  margin-top: 50px;
 }
 
 /*----------------------------------------*/
