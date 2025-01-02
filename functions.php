@@ -177,6 +177,7 @@ add_action( 'wp_enqueue_scripts', 'exdos_scripts' );
 include_once('inc/template-function.php');
 include_once('inc/nav-walker.php');
 include_once('inc/sidebar-recent-post.php');
+include_once('inc/breadcrumb.php');
 
 if ( class_exists( 'Kirki' ) ){
 include_once('inc/exdos-kirki.php');

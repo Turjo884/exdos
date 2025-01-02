@@ -37,6 +37,7 @@ function header_logo_kirki(){
 header_logo_kirki();
 
 
+
 // header info section
 function header_info_kirki(){
 	new \Kirki\Section(
@@ -208,6 +209,32 @@ function header_social_kirki(){
 	);
 }
 header_social_kirki();
+
+
+// breadcrumb section
+function breadcrump_kirki(){
+	new \Kirki\Section(
+		'breadcrump_section',
+		[
+			'title'       => esc_html__( 'Breadcrumb', 'kirki' ),
+			'description' => esc_html__( 'My Section Description.', 'kirki' ),
+			'panel'       => 'exdos_panel_id',
+			'priority'    => 160,
+		]
+	);
+
+	new \Kirki\Field\Image(
+		[
+			'settings'    => 'breadcrumb_image',
+			'label'       => esc_html__( 'Breadcrumb Image', 'kirki' ),
+			'description' => esc_html__( 'Upload your logo here', 'kirki' ),
+			'section'     => 'breadcrump_section',
+		]
+	);
+	
+	
+}
+breadcrump_kirki();
 
 // header logo section
 function footer_section_kirki(){
