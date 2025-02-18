@@ -65,8 +65,11 @@ if ( ! function_exists( 'exdos_setup' ) ) :
         ) );
 
         remove_theme_support('widgets-block-editor');
+
+        add_theme_support('woocommerce');
     
     }
+
     endif; // exdos_setup
     add_action( 'after_setup_theme', 'exdos_setup' );
 
@@ -179,9 +182,14 @@ include_once('inc/nav-walker.php');
 include_once('inc/sidebar-recent-post.php');
 include_once('inc/breadcrumb.php');
 
-if ( class_exists( 'Kirki' ) ){
-include_once('inc/exdos-kirki.php');
+if ( class_exists( 'WooCommerce' ) ){
+    include_once('inc/woo-fuction.php');
 };
+
+if ( class_exists( 'Kirki' ) ){
+    include_once('inc/exdos-kirki.php');
+    };
+    
 
 
 /**

@@ -10,7 +10,7 @@
 
     <?php wp_head();?>
 </head>
-<body>
+<body <?php body_class(); ?>>
     
     <!-- scroll to top  -->
     <button id="back-to-top"><i class="far fa-arrow-up"></i></button>
@@ -31,5 +31,5 @@
     <?php echo get_template_part('template-parts/header/header-1'); ?>
     <?php exdos_breadcrumb();?>
 
-        </body>
+    </body>
 </html>

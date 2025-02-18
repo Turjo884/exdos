@@ -15,3 +15,21 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
 */
 
 
+.tp-breadcrumb-title span{
+    color: var(--tp-theme-color-2);
+}
+
+.tp-newsletter-box form {
+    display: inherit!important;
+}
+.tp-newsletter-box form .mc4wp-form-fields{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+}
+
+

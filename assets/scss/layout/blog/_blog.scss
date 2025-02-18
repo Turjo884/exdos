@@ -168,7 +168,7 @@
     }
 
 }
-.reply, .comments-reply-link {
+.reply,.comments-reply-link {
     position: absolute;
     right: 0;
     top: 0;
@@ -254,11 +254,15 @@
     }
   }
 
-  .contact-form-box textarea{
-    height: 150px;
-  }
 
-.postbox__comment li .children{
-    padding-left: 50px!important;
+.contact-form-box textarea {
+	height: 150px;
+}
+
+.postbox__comment  li .children{
+    padding-left: 50px;
     margin-top: 50px;
+}
+#reply-title {
+	font-size: 40px;
 }

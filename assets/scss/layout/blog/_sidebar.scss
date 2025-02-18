@@ -68,9 +68,9 @@
             }
         }
     }
-  }
 
-  .widget_categories{
+  }
+.widget_categories{
     & ul {
         & li {
             margin-bottom: 15px;
@@ -103,8 +103,7 @@
             }
         }
     }
-  }
-
+}
 .tp-blog-form {
     & input {
         border: 1px solid #57595C;
@@ -134,7 +133,7 @@
 }
 .tagcloud {
     & a {
-        font-size: 15px!important;
+        font-size: 15px !important;
         font-weight: 500;
         border: 1px solid #57595C;
         color: #57595C;
