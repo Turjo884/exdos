@@ -56,4 +56,23 @@ a.added_to_cart.wc-forward {
 .tp-product-action-btn {
     text-align: center;
 }
+.woocommerce #content div.product div.images, .woocommerce div.product div.images, .woocommerce-page #content div.product div.images, .woocommerce-page div.product div.images {
+    float: none;
+    width: 100%;
+}
+
+
+.woocommerce .star-rating span::before {
+    color: #FFB21D!important;
+}
+.container .container-1230{
+    max-width: 1230!important;
+}
+.woocommerce div.product div.images .flex-control-thumbs li {
+    padding: 0 5px!important;
+}
+.woocommerce div.product div.images .flex-control-thumbs {
+    margin: 0 -5px!important;
+    margin-top: 10px!important;
+}
 

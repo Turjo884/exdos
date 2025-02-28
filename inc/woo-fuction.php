@@ -17,6 +17,16 @@ remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_pro
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 
 
+// product details
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
+
+
 // wp wishtlist default button hide start
 add_filter( 'woosc_button_position_archive', '__return_false' );
 add_filter( 'woosc_button_position_single', '__return_false' );
@@ -92,7 +102,7 @@ function exdos_wooc_add_to_cart( $args = array() ) {
 }
 
 
-
+// Start Product Grid
 function exdos_funtion_grid(){ 
       
     $pro_cats = get_the_terms( get_the_ID(), 'product_cat' );
@@ -181,3 +191,135 @@ function exdos_funtion_grid(){
 
 
 add_action('woocommerce_before_shop_loop_item','exdos_funtion_grid');
+
+
+
+function exdos_product_details(){
+    
+    global $product;
+    $pro_cats = get_the_terms( get_the_ID(), 'product_cat' );
+    // var_dump($product);
+
+    ?>
+
+
+<!-- Next Needed Markup Start -->
+    <div class="tp-product-details-wrapper pb-50">
+        <div class="tp-product-details-category">
+            <?php 
+                $html = '';
+                foreach($pro_cats as $key => $cat) {
+
+                $html .= '<span>'.$cat->name.'</span>,';
+
+                }
+                echo rtrim($html,','); 
+            ?>
+        </div>
+        <h3 class="tp-product-details-title mb-20"><?php the_title(); ?></h3>
+
+        <!-- inventory details -->
+        <div class="tp-product-details-inventory mb-25">
+            <!-- price -->
+            <div class="tp-product-details-price-wrapper">
+                <span class="tp-product-details-price"><?php woocommerce_template_single_price(); ?></span>
+                <div class="tp-product-details-rating-wrapper">
+                    <?php woocommerce_template_single_rating(); ?>
+                    <div class="tp-product-details-reviews">
+                        <!-- <span>(36 Reviews)</span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p><?php echo $product->get_short_description(); ?></p>
+
+
+        <!-- actions -->
+        <div class="tp-product-details-action-wrapper mb-10">
+            <h3 class="tp-product-details-action-title">Quantity</h3>
+            <div class="tp-product-details-action-item-wrapper d-flex flex-wrap align-items-center">
+                
+                <?php woocommerce_template_single_add_to_cart(); ?>    
+
+            </div>
+        </div>
+
+        <div class="tp-product-details-query">
+            <?php woocommerce_template_single_meta(); ?>
+        </div>
+        <div class="tp-product-details-social">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank"><i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/?url=<?php echo urlencode(get_permalink()); ?>" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?url=<?php echo urlencode(get_permalink()); ?>&title=<?php echo urlencode(get_the_title()); ?>" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+	 <!-- Next Needed Markup End -->
+
+
+<?php
+}
+
+add_action('woocommerce_single_product_summary', 'exdos_product_details');
+
+
+// custom_quantity_fields_script 
+function custom_quantity_fields_script(){
+    ?>
+    <script type='text/javascript'>
+    jQuery( function( $ ) {
+        if ( ! String.prototype.getDecimals ) {
+            String.prototype.getDecimals = function() {
+                var num = this,
+                    match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+                if ( ! match ) {
+                    return 0;
+                }
+                return Math.max( 0, ( match[1] ? match[1].length : 0 ) - ( match[2] ? +match[2] : 0 ) );
+            }
+        }
+        // Quantity "plus" and "minus" buttons
+        $( document.body ).on( 'click', '.plus, .minus', function() {
+            var $qty        = $( this ).closest( '.quantity' ).find( '.qty'),
+                currentVal  = parseFloat( $qty.val() ),
+                max         = parseFloat( $qty.attr( 'max' ) ),
+                min         = parseFloat( $qty.attr( 'min' ) ),
+                step        = $qty.attr( 'step' );
+
+            // Format values
+            if ( ! currentVal || currentVal === '' || currentVal === 'NaN' ) currentVal = 0;
+            if ( max === '' || max === 'NaN' ) max = '';
+            if ( min === '' || min === 'NaN' ) min = 0;
+            if ( step === 'any' || step === '' || step === undefined || parseFloat( step ) === 'NaN' ) step = 1;
+
+            // Change the value
+            if ( $( this ).is( '.plus' ) ) {
+                if ( max && ( currentVal >= max ) ) {
+                    $qty.val( max );
+                } else {
+                    $qty.val( ( currentVal + parseFloat( step )).toFixed( step.getDecimals() ) );
+                }
+            } else {
+                if ( min && ( currentVal <= min ) ) {
+                    $qty.val( min );
+                } else if ( currentVal > 0 ) {
+                    $qty.val( ( currentVal - parseFloat( step )).toFixed( step.getDecimals() ) );
+                }
+            }
+
+            // Trigger change event
+            $qty.trigger( 'change' );
+        });
+    });
+
+    </script>
+    <?php
+}
+add_action( 'wp_footer' , 'custom_quantity_fields_script' );

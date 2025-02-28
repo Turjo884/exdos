@@ -34,26 +34,46 @@ $label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 
 	do_action( 'woocommerce_before_quantity_input_field' );
 	?>
 	<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_attr( $label ); ?></label>
-	<input
-		type="<?php echo esc_attr( $type ); ?>"
-		<?php echo $readonly ? 'readonly="readonly"' : ''; ?>
-		id="<?php echo esc_attr( $input_id ); ?>"
-		class="<?php echo esc_attr( join( ' ', (array) $classes ) ); ?>"
-		name="<?php echo esc_attr( $input_name ); ?>"
-		value="<?php echo esc_attr( $input_value ); ?>"
-		aria-label="<?php esc_attr_e( 'Product quantity', 'woocommerce' ); ?>"
-		<?php if ( in_array( $type, array( 'text', 'search', 'tel', 'url', 'email', 'password' ), true ) ) : ?>
-			size="4"
-		<?php endif; ?>
-		min="<?php echo esc_attr( $min_value ); ?>"
-		max="<?php echo esc_attr( 0 < $max_value ? $max_value : '' ); ?>"
-		<?php if ( ! $readonly ) : ?>
-			step="<?php echo esc_attr( $step ); ?>"
-			placeholder="<?php echo esc_attr( $placeholder ); ?>"
-			inputmode="<?php echo esc_attr( $inputmode ); ?>"
-			autocomplete="<?php echo esc_attr( isset( $autocomplete ) ? $autocomplete : 'on' ); ?>"
-		<?php endif; ?>
-	/>
+
+	<div class="tp-product-details-quantity quantity">
+		<div class="tp-product-quantity mb-15 mr-15">
+			<span class="tp-cart-minus minus">
+					<svg width="11" height="2" viewBox="0 0 11 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1 1H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>                                              
+			</span>
+
+			<input
+				type="text"
+				id="<?php echo esc_attr( $input_id ); ?>"
+				class="<?php echo esc_attr( join( ' tp-cart-input ', (array) $classes ) ); ?>"
+				name="<?php echo esc_attr( $input_name ); ?>"
+				value="<?php echo esc_attr( $input_value ); ?>"
+				aria-label="<?php esc_attr_e( 'Product quantity', 'woocommerce' ); ?>"
+				<?php if ( in_array( $type, array( 'text', 'search', 'tel', 'url', 'email', 'password' ), true ) ) : ?>
+					size="4"
+				<?php endif; ?>
+				min="<?php echo esc_attr( $min_value ); ?>"
+				max="<?php echo esc_attr( 0 < $max_value ? $max_value : '' ); ?>"
+				<?php if ( ! $readonly ) : ?>
+					step="<?php echo esc_attr( $step ); ?>"
+					placeholder="<?php echo esc_attr( $placeholder ); ?>"
+					inputmode="<?php echo esc_attr( $inputmode ); ?>"
+					autocomplete="<?php echo esc_attr( isset( $autocomplete ) ? $autocomplete : 'on' ); ?>"
+				<?php endif; ?>
+				/>
+
+				<span class="tp-cart-plus plus">
+					<svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+                </span>
+		</div>		
+	</div>
+
+
+	
 	<?php
 	/**
 	 * Hook to output something after quantity input field

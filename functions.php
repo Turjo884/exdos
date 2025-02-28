@@ -67,6 +67,10 @@ if ( ! function_exists( 'exdos_setup' ) ) :
         remove_theme_support('widgets-block-editor');
 
         add_theme_support('woocommerce');
+
+        add_theme_support( 'wc-product-gallery-lightbox' );
+        add_theme_support( 'wc-product-gallery-slider' );
+    
     
     }
 
