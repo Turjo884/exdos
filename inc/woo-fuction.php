@@ -127,30 +127,36 @@ function exdos_funtion_grid(){
 
 
                     <!-- Start Compacre  -->
+                     <?php if(function_exists( 'woosc_init' ) ) : ?>
                      <div class="tp-product-action-btn tp-product-add-cart-btn">
 
                      <?php echo do_shortcode('[woosc]'); ?>
                      <span class="tp-product-tooltip">Add To Compare</span>
                      </div>
+                     <?php endif; ?>
                     <!-- End Compare -->
 
 
 
                     <!-- Start Quick View -->
+                    <?php if(function_exists( 'woosq_init' ) ) : ?>
                      <div class="tp-product-action-btn tp-product-quick-view-btn">
 
                         <?php echo do_shortcode('[woosq]');?>
                         <span class="tp-product-tooltip">Quick View</span>
                      </div>
+                     <?php endif; ?>
                     <!-- End Quick View -->
 
                 
                     <!-- Start Add To Wishtist -->
+                    <?php if(function_exists( 'woosw_init' ) ) : ?>
                      <div class="tp-product-action-btn tp-product-add-to-wishlist-btn">
 
                      <?php echo do_shortcode('[woosw]');?>
                      <span class="tp-product-tooltip">Add To Wishlist</span>
                      </div>
+                     <?php endif; ?>
                     <!-- End Add To Wishtlist -->
 
                 </div>
@@ -198,6 +204,7 @@ function exdos_product_details(){
     
     global $product;
     $pro_cats = get_the_terms( get_the_ID(), 'product_cat' );
+    $rating_count = $product->get_rating_count();
     // var_dump($product);
 
     ?>
@@ -224,7 +231,13 @@ function exdos_product_details(){
             <div class="tp-product-details-price-wrapper">
                 <span class="tp-product-details-price"><?php woocommerce_template_single_price(); ?></span>
                 <div class="tp-product-details-rating-wrapper">
+
+                <?php if($rating_count > 0) : ?>
                     <?php woocommerce_template_single_rating(); ?>
+                        <?php else : ?>  
+                            <p>(0 Ratings)</p>  
+                    <?php endif; ?>
+
                     <div class="tp-product-details-reviews">
                         <!-- <span>(36 Reviews)</span> -->
                     </div>

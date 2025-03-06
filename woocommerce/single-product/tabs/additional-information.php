@@ -27,4 +27,10 @@ $heading = apply_filters( 'woocommerce_product_additional_information_heading', 
 	<h2><?php echo esc_html( $heading ); ?></h2>
 <?php endif; ?>
 
-<?php do_action( 'woocommerce_product_additional_information', $product ); ?>
+
+<div class="row justify-content-center">
+	<div class="col-log-10">
+		<?php do_action( 'woocommerce_product_additional_information', $product ); ?>
+	</div>
+</div>
+
