@@ -143,3 +143,15 @@ input#email {
     margin: 20px 0px;
 }
 
+
+/* add to cart button css */
+a.wc-block-components-button.wp-element-button.wc-block-cart__submit-button.contained {
+    background: #000!important;
+    color: #fff!important;
+}
+
+/* Cart Totals Css Start */
+.woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals {
+    float: none;
+    width: 100%;
+}
