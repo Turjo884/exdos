@@ -1,5 +1,50 @@
 <?php
 
+// exdos header variations
+function exdos_headers(){
+    $header_variation = function_exists('get_field') ? get_field('header_variation') : '';
+
+    $header_style_kirki= get_theme_mod('header_style_kirki','header_kirki_01');
+
+    if($header_variation == 'header_style_1'){
+        get_template_part('template-parts/header/header', '1');
+    }
+    elseif($header_variation == 'header_style_2'){
+        get_template_part('template-parts/header/header', '2');
+    }
+    else{
+        if($header_style_kirki == 'header_kirki_01'){
+            get_template_part('template-parts/header/header', '1');
+        }
+        elseif($header_style_kirki == 'header_kirki_02'){
+            get_template_part('template-parts/header/header', '2');
+        }
+    }
+}
+
+// exdos footer variations
+function exdos_footers(){
+    $footer_options = function_exists('get_field') ? get_field('footer_options') : '';
+
+    $footer_style_kirki= get_theme_mod('footer_style_kirki','footer_kirki_01');
+
+    if($footer_options == 'footer_style_01'){
+        get_template_part('template-parts/footer/footer-1');
+    }
+    elseif($footer_options == 'footer_style_02'){
+        get_template_part('template-parts/footer/footer-2');
+    }
+    else{
+        if($footer_style_kirki == 'footer_kirki_01'){
+            get_template_part('template-parts/footer/footer-1');
+        }
+        elseif($footer_style_kirki == 'footer_kirki_02'){
+            get_template_part('template-parts/footer/footer-2');
+        }
+    }
+}
+
+
 // Header Logo
 function exdos_header_logo(){
 

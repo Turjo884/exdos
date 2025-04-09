@@ -28,7 +28,7 @@
     </div>
 
 
-    <?php echo get_template_part('template-parts/header/header-1'); ?>
+    <?php exdos_headers(); ?>
     <?php exdos_breadcrumb();?>
 
     </body>

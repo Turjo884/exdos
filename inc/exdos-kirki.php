@@ -59,6 +59,21 @@ function header_info_kirki(){
 			'priority' => 10,
 		]
 	);
+
+	// header variation
+	new \Kirki\Field\Select(
+		[
+			'settings'    => 'header_style_kirki',
+			'label'       => esc_html__( 'Default Header', 'kirki' ),
+			'section'     => 'header_info',
+			'default'     => 'header_kirki_01',
+			'placeholder' => esc_html__( 'Choose an option', 'kirki' ),
+			'choices'     => [
+				'header_kirki_01' => esc_html__( 'Header Style 01', 'kirki' ),
+				'header_kirki_02' => esc_html__( 'Header Style 02', 'kirki' ),
+			],
+		]
+	);
 }
 header_info_kirki();
 
@@ -236,7 +251,7 @@ function breadcrump_kirki(){
 }
 breadcrump_kirki();
 
-// header logo section
+// footer logo section
 function footer_section_kirki(){
 	new \Kirki\Section(
 		'footer_section',
@@ -245,6 +260,21 @@ function footer_section_kirki(){
 			'description' => esc_html__( 'My Section Description.', 'kirki' ),
 			'panel'       => 'exdos_panel_id',
 			'priority'    => 160,
+		]
+	);
+
+	// footer variation
+	new \Kirki\Field\Select(
+		[
+			'settings'    => 'footer_style_kirki',
+			'label'       => esc_html__( 'Default Footer', 'kirki' ),
+			'section'     => 'footer_section',
+			'default'     => 'footer_kirki_01',
+			'placeholder' => esc_html__( 'Choose an option', 'kirki' ),
+			'choices'     => [
+				'footer_kirki_01' => esc_html__( 'Footer Style 01', 'kirki' ),
+				'footer_kirki_02' => esc_html__( 'Footer Style 02', 'kirki' ),
+			],
 		]
 	);
 
